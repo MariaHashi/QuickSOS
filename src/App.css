@@ -1,0 +1,64 @@
+/* at the very top of app.css (before any other rules) */
+:root {
+  --color-primary:   #263859;
+  --color-accent:    #E63946;
+  --color-success:   #81B29A;
+  --color-warning:   #F4A261;
+  --color-secondary: #E9C46A;
+  --color-bg:        #FFFFFF;
+  --color-text:      #000000;
+}
+
+/* your existing styles */
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--color-secondary)aa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em var(--color-primary)aa);
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Example usage for your SOS button */
+button.sos {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 1em 2em;
+  border: none;
+  border-radius: .5em;
+}

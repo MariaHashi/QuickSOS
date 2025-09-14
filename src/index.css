@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL. */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* Pure White */
+    --foreground: 15 23 42;
+
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+
+    /* Emergency Red - Primary SOS color */
+    --primary: 0 84% 60%;
+    --primary-foreground: 255 255 255;
+
+    /* Medical Green - Success and health indicators */
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 255 255 255;
+
+    /* Soft backgrounds */
+    --muted: 248 250 252;
+    --muted-foreground: 100 116 139;
+
+    /* Info Blue - Information and contacts */
+    --accent: 217 91% 60%;
+    --accent-foreground: 255 255 255;
+
+    /* Emergency Red for destructive actions */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 255 255 255;
+
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 0 84% 60%;
+
+    /* Custom Emergency Colors */
+    --emergency-red: 0 84% 60%;
+    --emergency-red-dark: 0 84% 45%;
+    --medical-green: 142 76% 36%;
+    --medical-green-light: 142 76% 45%;
+    --info-blue: 217 91% 60%;
+    --info-blue-dark: 217 91% 45%;
+    --warning-amber: 45 93% 47%;
+
+    /* Status Colors */
+    --status-active: 142 76% 36%;
+    --status-inactive: 100 116% 139;
+    --status-pending: 45 93% 47%;
+
+    /* Gradients */
+    --gradient-emergency: linear-gradient(135deg, hsl(var(--emergency-red)), hsl(var(--emergency-red-dark)));
+    --gradient-medical: linear-gradient(135deg, hsl(var(--medical-green)), hsl(var(--medical-green-light)));
+    --gradient-info: linear-gradient(135deg, hsl(var(--info-blue)), hsl(var(--info-blue-dark)));
+
+    /* Shadows for Emergency Elements */
+    --shadow-emergency: 0 10px 30px -10px hsl(var(--emergency-red) / 0.3);
+    --shadow-medical: 0 10px 30px -10px hsl(var(--medical-green) / 0.2);
+    --shadow-elevated: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Force every root container to the design-system background */
+html,
+body,
+#root {
+  background-color: hsl(var(--background)) !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
