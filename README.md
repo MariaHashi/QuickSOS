@@ -1,64 +1,126 @@
+# QuickSOS
 
-## Project info
+QuickSOS is a lightweight, mobile-first safety app for one-tap SOS and a clean, shareable emergency profile. Add trusted contacts and key medical info once; when you need help, everything is instantly accessible—even offline. It’s an installable PWA, privacy-first (no AI SDKs or third-party backends), and easy to fork and deploy.
 
+---
 
-## How can I edit this code?
+## Features
+- **One-tap SOS** UI with clear state (recording/offline indicators)
+- **Emergency profile** (contacts + medical info) in a simple card layout
+- **Shareable profile** view for quick access by helpers
+- **Installable PWA** with proper icons & offline-friendly shell
+- **Brandable** (swap logo, colors, and app name in minutes)
+- **Privacy-first**: no analytics, no AI, no external data services
 
-There are several ways of editing your application.
+---
 
+##  Tech Stack
+- **React + TypeScript** (Vite)
+- **Tailwind CSS**
+- **shadcn/ui** components
+- **PWA** via `manifest.webmanifest`
 
+---
 
+##  Quick Start
 
-**Use your preferred IDE**
+```bash
+# 1) Install deps
+npm ci   # or: npm install
 
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 2) Run locally
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+# 3) Production build
+npm run build
+npm run preview
+Requires Node 18+.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🗂 Project Structure (high level)
+css
+Copy code
+QuickSOS/
+├─ public/
+│  ├─ avatar.png
+│  ├─ favicon-16.png
+│  ├─ favicon-32.png
+│  ├─ icon-192.png
+│  ├─ icon-512.png
+│  ├─ logo.svg
+│  └─ sosband-icon.png
+├─ src/
+│  ├─ components/                # UI + feature components
+│  ├─ pages/                     # Index, Dashboard, NotFound
+│  ├─ hooks/                     # small utilities
+│  ├─ App.tsx / main.tsx
+│  └─ index.css
+├─ index.html
+├─ manifest.webmanifest
+└─ vite.config.ts
+ Branding / Icons
+Favicon & tab icon: public/logo.svg (+ 16/32 PNG fallbacks)
 
-**Use GitHub Codespaces**
+Apple touch icon: public/sosband-icon.png (180×180)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+PWA icons: public/icon-192.png, public/icon-512.png
 
-## What technologies are used for this project?
+App name: in manifest.webmanifest (name, short_name)
 
-This project is built with:
+Social preview (optional): meta tags in index.html
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Swap these files with your own assets to rebrand quickly.
 
-## How can I deploy this project?
+⚙ Configuration
+This template is intentionally backend-free. The sample data (contacts & profile) lives in React state. To customize:
 
+Edit src/pages/Dashboard.tsx default contacts and profile fields.
 
+Tweak copy and styles in the components under src/components/.
 
-Yes, you can!
+Update the landing experience in src/pages/Index.tsx.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Deploy
+Vercel (recommended)
+Push this repo to GitHub.
+
+Import the repo at vercel.com/new and deploy.
+
+For CLI deploys, ensure your Vercel account/scope is correct and run:
+
+bash
+Copy code
+vercel --prod
+Static hosting
+The dist/ folder is a static bundle. Serve it on any static host (e.g., GitHub Pages, Cloudflare Pages, Netlify).
+
+ Privacy & Security
+No AI SDKs or model calls.
+
+No telemetry or external analytics.
+
+No third-party backends.
+
+Everything shown is local UI state unless you connect your own services.
+
+Not a substitute for emergency services. In a real emergency, call your local emergency number (e.g., 911, 112) immediately.
+
+ Troubleshooting
+Vite build complains about /assets/*.js in index.html:
+Ensure your entry script is <script type="module" src="/src/main.tsx"></script> and do a clean build:
+
+bash
+Copy code
+rm -rf node_modules .vite dist
+npm ci && npm run build
+Icons not updating:
+Clear browser cache or bump the query string (e.g., logo.svg?v=4). Confirm manifest.webmanifest lists your PNG icons.
+
+Roadmap (ideas)
+Share SOS via SMS with location
+
+Optional PIN/disarm flow
+
+Contact groups & escalation timers
+
+Local encryption for sensitive fields
 
