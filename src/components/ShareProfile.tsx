@@ -56,19 +56,7 @@ const ShareProfile: React.FC = () => {
               <p className="text-sm text-muted-foreground">Patient ID: {userId}</p>
             </div>
           </div>
-<<<<<<< HEAD
           {/* …other medical profile details… */}
-=======
-
-          {/* Emergency contact section */}
-          <div className="space-y-1">
-            <p className="font-medium">Emergency Contact:</p>
-            <ul className="ml-4 list-disc text-sm">
-              <li>Mom</li>
-              <li>+60198815547</li>
-            </ul>
-          </div>
->>>>>>> b9a7dcd (fix: display real emergency contact number in ShareProfile)
         </CardContent>
       </Card>
     </div>
