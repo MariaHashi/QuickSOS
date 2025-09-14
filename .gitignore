@@ -28,3 +28,4 @@ quicksos.zip
 # local bundles
 *.zip
 QuickSOS-backup.zip
+.env
