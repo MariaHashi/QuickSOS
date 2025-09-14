@@ -1,6 +1,7 @@
 # QuickSOS
 
-QuickSOS is a lightweight safety app that puts help one tap away. Save trusted contacts and essential medical details once, then share a clean emergency profile in seconds. As an installable PWA, it’s fast, works offline for local access and keeps everything on your device—no trackers, no third-party backends.  rebrand and deploy in minutes.
+QuickSOS is a lightweight, mobile-first safety app that puts help one tap away. Save trusted contacts and essential medical details once, then share a clean emergency profile in seconds. As an installable PWA, it’s fast, works offline for local access, and keeps everything on your device—no trackers, no third-party backends. Fork, rebrand, and deploy in minutes.
+
 ---
 
 ## Features
